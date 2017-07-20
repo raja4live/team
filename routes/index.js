@@ -1,11 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var mongoose = require('mongoose');
 var Product=require('../models/product');
 var Cart = require('../models/cart');
-var url='mongodb://raja4live:affiliateid84@ds159892.mlab.com:59892/affiliate';
-mongoose.Promise = global.Promise;
-mongoose.connect(url, { useMongoClient: true, /* other options */ });
 /* GET home page. */
 router.get('/', function(req, res, next) {
   Product.find(function(err, docs){
