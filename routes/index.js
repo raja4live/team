@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Product=require('../models/product');
+var Loot=require('../models/loots');
 var Cart = require('../models/cart');
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -10,7 +11,18 @@ router.get('/', function(req, res, next) {
         for(var i=0; i < docs.length; i += chunkSize){
           productChunks.push(docs.slice(i , i + chunkSize));
         }
-        res.render('shop/index', { title: 'Shopping-Cart', products: productChunks });
+        res.render('shop/index', { title: 'Loots-Cart', products: productChunks });
+   });
+});
+
+router.get('/loots', function(req, res, next) {
+  Loot.find(function(err, docs){
+        var productChunks = [];
+        var chunkSize = 3;
+        for(var i=0; i < docs.length; i += chunkSize){
+          productChunks.push(docs.slice(i , i + chunkSize));
+        }
+        res.render('shop/loots', { title: 'Loots', loots: productChunks });
    });
 });
 

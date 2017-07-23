@@ -1,0 +1,60 @@
+
+{{# each loots }}
+<div class="row">
+  {{# each this }}
+     <div class="col-sm-6 col-md-4">
+       <div class="thumbnail" >
+          <div id="{{ this._id }}"></div>
+
+            <script>
+                  var raj = '{{ this.imagePath }}';
+var matches1 = raj.match(/&lt;/g);                  
+var matches2 = raj.match(/&gt;/g);
+var matches3 = raj.match(/&quot;/g);
+var matches4 = raj.match(/&#x3D;/g);
+var matches5 = raj.match(/&amp;/g);
+
+var length1 = matches1.length;
+var length2 = matches2.length;
+var length3 = matches3.length;
+var length4 = matches4.length;
+var length5 = matches5.length;
+
+
+for (i = 0; i < length1; i++) { 
+      raj= raj.replace('&lt;','<');    
+} 
+for (i = 0; i < length2; i++) { 
+      raj= raj.replace('&gt;','>')    
+} 
+for (i = 0; i < length3; i++) { 
+      raj= raj.replace('&quot;','"');    
+} 
+for (i = 0; i < length4; i++) { 
+      raj= raj.replace('&#x3D;','=');    
+} 
+for (i = 0; i < length4; i++) { 
+      raj= raj.replace('&amp;','&');    
+} 
+        console.log(raj);
+
+                  var element = document.getElementById("{{ this._id }}");
+                   element.innerHTML = raj;
+                   </script>
+         <div class="caption">
+            <h3>{{ this.title }}</h3>
+            <p class="description">{{ this.description }}</p>
+              <div class="price ">Price: INR.{{ this.price }}</div>
+              <div class="price ">Sale: INR.{{ this.sale }}</div>
+              <div class="price ">Discount: {{ this.discount }}</div>
+              <div class="price ">{{ this.company }}</div>
+             <div class="clearfix">
+            
+               <a href="{{ this.link }}" class="btn btn-primary pull-right" role="button">Buy Now </a>
+             </div>
+          </div>
+        </div>
+      </div>
+   {{/each}}
+</div>
+{{/each}}
