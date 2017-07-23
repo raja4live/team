@@ -2,8 +2,44 @@
 <div class="row">
   {{# each this }}
      <div class="col-sm-6 col-md-4">
-       <div class="thumbnail">
-         <a target="_blank"  href="https://www.amazon.in/gp/product/B01N29WP7D/ref=as_li_tl?ie=UTF8&camp=3638&creative=24630&creativeASIN=B01N29WP7D&linkCode=as2&tag=lootscart84-21&linkId=d52dbe0f2c3e5a8bc7b269d6e051f275"><img border="0" src="//ws-in.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=IN&ASIN=B01N29WP7D&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=lootscart84-21" ></a><img src="//ir-in.amazon-adsystem.com/e/ir?t=lootscart84-21&l=am2&o=31&a=B01N29WP7D" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+       <div class="thumbnail" >
+          <div id="{{ this._id }}"></div>
+
+            <script>
+                  var raj = '{{ this.imagePath }}';
+var matches1 = raj.match(/&lt;/g);                  
+var matches2 = raj.match(/&gt;/g);
+var matches3 = raj.match(/&quot;/g);
+var matches4 = raj.match(/&#x3D;/g);
+var matches5 = raj.match(/&amp;/g);
+
+var length1 = matches1.length;
+var length2 = matches2.length;
+var length3 = matches3.length;
+var length4 = matches4.length;
+var length5 = matches5.length;
+
+
+for (i = 0; i < length1; i++) { 
+      raj= raj.replace('&lt;','<');    
+} 
+for (i = 0; i < length2; i++) { 
+      raj= raj.replace('&gt;','>')    
+} 
+for (i = 0; i < length3; i++) { 
+      raj= raj.replace('&quot;','"');    
+} 
+for (i = 0; i < length4; i++) { 
+      raj= raj.replace('&#x3D;','=');    
+} 
+for (i = 0; i < length4; i++) { 
+      raj= raj.replace('&amp;','&');    
+} 
+        console.log(raj);
+
+                  var element = document.getElementById("{{ this._id }}");
+                   element.innerHTML = raj;
+                   </script>
          <div class="caption">
             <h3>{{ this.title }}</h3>
             <p class="description">{{ this.description }}</p>
