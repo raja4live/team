@@ -15,7 +15,7 @@ var session = require('express-session');
 var passport = require('passport');
 var flash = require('connect-flash');
 var MongoStore = require('connect-mongo')(session);
-var url='mongodb://raja4live:affiliateid84@ds159892.mlab.com:59892/affiliate';
+var url='enter data base url';
 mongoose.Promise = global.Promise;
 
 mongoose.connect(url,{ useMongoClient: true, /* other options */ });
