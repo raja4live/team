@@ -1,7 +1,7 @@
 var Product= require('../models/loots');
 var MongoClient = require('mongodb').MongoClient;
 var mongoose = require('mongoose');
-var url='mongodb://raja4live:affiliateid84@ds159892.mlab.com:59892/affiliate';
+var url='enter data base url';
 mongoose.Promise = global.Promise;
 mongoose.connect(url,{ useMongoClient: true, /* other options */ }, function(err, db){
       if(err){
