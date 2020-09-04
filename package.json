@@ -22,7 +22,7 @@
     "csurf": "^1.9.0",
     "express-session": "^1.15.3",
     "express-validator": "^3.2.1",
-    "mongodb": "^2.2.30",
+    "mongodb": "^3.1.13",
     "mongoose": "^4.11.3",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0"
